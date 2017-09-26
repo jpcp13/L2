@@ -1,0 +1,65 @@
+\documentclass{exam}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage[francais]{babel}
+
+\title{TP2\\ Intégration numérique}
+
+\begin{document}
+\maketitle
+
+
+Dans ce TP, on va apprendre quelques méthodes numériques pour calculer, approximativement, l'intégrale d'une fonction sur un intervalle compact (borné, fermé).
+
+\begin{questions}
+
+\question
+Création d'une fonction simple et représentation graphique.
+\begin{parts}
+\part
+Ecrire la fonction $f(x) = 1 - x^2$ sous forme d'une fonction python. 
+\part
+Représentation graphique sur l'intervalle $\left[0, 1\right]$.
+\part
+Calculer, à la main, l'intégrale $I$ de cette fonction sur l'intervalle donné.
+\end{parts}
+
+\question
+Calcul approché de $I$ au moyen de la {\bf méthode du point milieu}.
+\begin{parts}
+\part
+Représenter graphiquement $f$ sur papier, repère orthonormé, unité = $8$ cm.
+\part
+On définit une subdivision régulière $x_0, \cdots, x_4$ de l'intervalle d'intégration $[0, 1]$ en $n=4$ parts égales (on a donc $x_0 = 0, x_1 = 0.25, \cdots, x_4 = 1$. On note $c_1, \cdots, c_4$ les milieux de ces sous-intervalles. Pour chaque $k = 1, \cdots, 4$, dessiner le rectangle de base $[x_{k-1}, x_k]$ et de hauteur $f(c_k)$, et calculer sa surface $s_k$.
+\part
+La méthode du point milieu consiste à prendre la somme $S_4 = \sum\limits_{i=1}^4 s_k$ comme approximation de $I$. Calculer l'erreur commise $\vert S_4 - I \vert$.
+\part
+Importer le module \texttt{time}. Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
+\part
+Recommencer les calculs précédents pour $n = 10^k$, k variant de $1$ à $6$ et remplir le tableau des erreurs et temps de calcul.
+\begin{center}
+\begin{tabular}{r | c | c}
+{n} & erreur & temps (sec.)\\
+\hline
+$10$ & {} & {}\\
+$100$ & {} & {}\\
+$1000$ & {} & {}\\
+$10000$ & {} & {}\\
+$100000$ & {} & {}\\
+$1000000$ & {} & {}
+\end{tabular}
+\end{center}
+\end{parts}
+
+
+\end{questions}
+
+\end{document}
+
+
+
