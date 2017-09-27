@@ -1,12 +1,12 @@
 \documentclass{exam}
 
 \usepackage[utf8]{inputenc}
-
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
-
 \usepackage[francais]{babel}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
 
 \title{TP2\\ Intégration numérique}
 
@@ -41,7 +41,7 @@ La méthode du point milieu consiste à prendre la somme $S_4 = \sum\limits_{i=1
 \part
 Importer le module \texttt{time}. Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
 \part
-Recommencer les calculs précédents pour $n = 10^k$, k variant de $1$ à $6$ et remplir le tableau des erreurs et temps de calcul.
+Recommencer les calculs précédents pour $n = 10^k$, k variant de $1$ à $6$, et remplir, manuellement, le tableau ci-dessous:
 \begin{center}
 \begin{tabular}{r | c | c}
 {n} & erreur & temps (sec.)\\
@@ -54,6 +54,12 @@ $100000$ & {} & {}\\
 $1000000$ & {} & {}
 \end{tabular}
 \end{center}
+\part
+En python, recréer automatiquement le tableau obtenu au moyen d'une boucle \texttt{for}. Utiliser  les fonction \texttt{print} pour voir le tableau à l'écran et \texttt{write} pour écrire le tableau dans un fichier texte.\\
+Voir documentation à l'adresse \url{https://docs.python.org/3/tutorial/inputoutput.html}.\\
+Exemple de tableau produit automatiquement et envoyé à l'écran:
+\VerbatimInput{table.txt}
+
 \end{parts}
 
 
