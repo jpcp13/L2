@@ -14,12 +14,12 @@
 \maketitle
 
 
-On reprend le TP précédent, dont on pourra s'inspirer pour la syntaxe python. On écrira le code dans un fichier \texttt{tp1.py}. Pour exécuter le code, ouvrir un terminal linux, saisir \texttt{ipython} et valider. Un terminal ipython se substitue au terminal linux; à l'intérieur saisir \texttt{run tp1.py} et valider.\\
+On écrira le code dans un fichier \texttt{tp1.py}. Pour exécuter le code, ouvrir un terminal linux, saisir \texttt{ipython} et valider. Un terminal ipython se substitue au terminal linux; à l'intérieur saisir \texttt{run tp1.py} et valider.\\
 
 \begin{questions}
 
 \question
-Création d'une fonction simple et représentation graphique; notions python abordées : fonction python \texttt{def}, module \texttt{matplotlib}.
+Création d'une fonction simple et représentation graphique. Notions python abordées : fonction python \texttt{def}; module \texttt{matplotlib}.
 \begin{parts}
 \part
 Ecrire la fonction $f(x) = x^2 - x - 1$ sous forme d'une fonction python. 
@@ -43,7 +43,7 @@ Dessiner, sur papier en repère orthonormé, la fonction $g$ ainsi que la premi�
 \end{parts}
 
 \question
-Implémentation d'une fonction python \texttt{point\_fixe}
+Implémentation d'une fonction python \texttt{point\_fixe}. Notions python abordées : boucle \texttt{while}; aspect fonctionnel de python, c'est-à-dire qu'une fonction peut prendre en argument une fonction. Notion mathématique abordée : point fixe attractif, point fixe répulsif.
 \begin{parts}
 \part
 Ecrire une fonction python \texttt{point\_fixe} qui prend en arguments une fonction $g$, une valeur initiale $x_0$, un réel positif $\epsilon$, et qui renvoie une approximation $r$ d'un point fixe de la fonction $g$. Condition d'arrêt : $\vert x_{n+1} - x_n \vert < \epsilon$
@@ -79,7 +79,7 @@ Tester \texttt{newton} avec $f(x) = x^2 - x - 1, x_0 = -1.0, \epsilon = 10^{-12}
 \end{parts}
 
 \question
-Toujours à la recherche des zéros de $f$ La {\bf méthode de la sécante} est une méthode itérative où chaque approximation est construite à partir des deux approximations précédentes. On doit donc partir de deux valeurs initiales distinctes, $x_0, x_1$ (en général les bornes d'un encadrement de la racine cherchée), puis on calcule par récurrence les termes de la suite $x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}f(x_n)$. L'avantage sur la méthode de Newton est qu'on n'a pas besoin de la dérivée de $f$.
+Toujours à la recherche des zéros de $f$, la {\bf méthode de la sécante} est une méthode itérative où chaque approximation est construite à partir des deux approximations précédentes. On doit donc partir de deux valeurs initiales distinctes, $x_0, x_1$ (en général les bornes d'un encadrement de la racine cherchée), puis on calcule par récurrence les termes de la suite $x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}f(x_n)$. L'avantage sur la méthode de Newton est qu'on n'a pas besoin de la dérivée de $f$.
 \begin{parts}
 \part
 Vérifier algébriquement que les points fixes de $g$ sont les zéros de $f$.
