@@ -74,6 +74,43 @@ Reprendre le travail précédent, mais avec la méthode de Simpson.
 \question
 Comparer les trois méthodes précédentes.
 
+\question
+La {\bf méthode de Monte-Carlo} est intéressante pour calculer des surfaces, des volumes, etc., et on pourrait donc l'appliquer au problème ci-dessus. Présentons la méthode en modifiant un peu la situation précédente [Python : module \texttt{numpy.random}; Maths : distribution de probabilité].
+\begin{parts}
+\part
+A l'aide de \texttt{matplotlib.pyplot}, dessiner le cercle unité (centré à l'origine et de rayon $1$). Quelle est la surface du disque unité ?
+\part
+En ligne de commande, à l'aide de la fonction \texttt{numpy.random.rand()}, générer quelques valeurs aléatoires suivant la distribution de loi uniforme sur $[0, 1]$. Même exercice avec une distribution de loi uniforme sur $[-1, 1]$.
+\part
+Générer $N=1000$ points suivant la distribution uniforme sur le carré $[-1, 1]^2$. Faire apparaitre ces $N$ points sur le graphique précédent, en rouge les points intérieurs au disque unité, et en vert les points extérieurs au disque.
+\part
+Compter le nombre $I$ de points intérieurs et le nombre $E$ de points extérieurs. La méthode de Monte-Carlo consiste à prendre le rapport $\frac{I}{N}$ comme approximation de la surface $S$ du disque.
+\part
+Calculer l'erreur commise $\vert \frac{I}{N} - S \vert$.
+\part
+Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
+\part
+Ecrire une fonction python \texttt{Monte\_Carlo} qui prend en arguments un entier $N$ et qui renvoie une approximation de la surface du disque unité au moyen de la méthode de Monte-Carlo.
+\part
+Tester \texttt{Monte\_Carlo} avec $N = 10^k$, k variant de $1$ à $6$, puis créer automatiquement, et l'enregistrer dans un fichier texte, un tableau de résutats du modèle ci-dessous:
+\begin{center}
+\begin{tabular}{r | c | c}
+{N} & erreur & temps (sec.)\\
+\hline
+$10$ & {} & {}\\
+$100$ & {} & {}\\
+$1000$ & {} & {}\\
+$10000$ & {} & {}\\
+$100000$ & {} & {}\\
+$1000000$ & {} & {}
+\end{tabular}
+\end{center}
+
+
+\end{parts}
+
+
+
 \end{questions}
 
 \end{document}
