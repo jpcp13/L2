@@ -84,11 +84,7 @@ En ligne de commande, à l'aide de la fonction \texttt{numpy.random.rand()}, gé
 \part
 Générer $N=1000$ points suivant la distribution uniforme sur le carré $[-1, 1]^2$. Faire apparaitre ces $N$ points sur le graphique précédent, en rouge les points intérieurs au disque unité, et en vert les points extérieurs au disque.
 \part
-Compter le nombre $I$ de points intérieurs et le nombre $E$ de points extérieurs. La méthode de Monte-Carlo consiste à prendre le rapport $\frac{I}{N}$ comme approximation de la surface $S$ du disque.
-\part
-Calculer l'erreur commise $\vert \frac{I}{N} - S \vert$.
-\part
-Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
+Compter le nombre $I$ de points intérieurs et le nombre $E$ de points extérieurs. La méthode de Monte-Carlo consiste à prendre le rapport $\frac{I}{N}$ comme approximation de la surface $S$ du disque; calculer l'erreur commise $\vert \frac{I}{N} - S \vert$; à l'aide de \texttt{time.clock()} mesurer le temps de calcul de ce calcul.
 \part
 Ecrire une fonction python \texttt{Monte\_Carlo} qui prend en arguments un entier $N$ et qui renvoie une approximation de la surface du disque unité au moyen de la méthode de Monte-Carlo.
 \part
@@ -105,7 +101,8 @@ $100000$ & {} & {}\\
 $1000000$ & {} & {}
 \end{tabular}
 \end{center}
-
+\part
+Reprendre le travail qui précède avec le calcul du volume de la boule unité par la méthode de Monte-Carlo.
 
 \end{parts}
 
