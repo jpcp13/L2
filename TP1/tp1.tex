@@ -19,7 +19,7 @@ On reprend le TP précédent, dont on pourra s'inspirer pour la syntaxe python. 
 \begin{questions}
 
 \question
-Création d'une fonction simple et représentation graphique.
+Création d'une fonction simple et représentation graphique; notions python abordées : fonction python \texttt{def}, module \texttt{matplotlib}.
 \begin{parts}
 \part
 Ecrire la fonction $f(x) = x^2 - x - 1$ sous forme d'une fonction python. 
@@ -30,14 +30,16 @@ Observer la présence de deux zéros et en donner une estimation grossière.
 \end{parts}
 
 \question
-Recherche d'un zéro d'une fonction au moyen de la {\bf méthode du point fixe}. 
+Recherche d'un zéro d'une fonction au moyen de la {\bf méthode du point fixe}; notion python abordée : boucle \texttt{for}.
 \begin{parts}
 \part
-Ecrire la fonction $g(x) = 1 + 1/x$ sous forme d'une fonction python, et vérifier que les points fixes de $g$ sont les zéros de $f$.
+Vérifier algébriquement que les points fixes de $g$ sont les zéros de $f$. Ecrire la fonction $g(x) = 1 + 1/x$ sous forme d'une fonction python.
 \part
 Calculer les $25$ premiers termes de la suite définie par $x_{n+1} = g(x_n)$ et $x_0 = 1.0$ et enregistrer ces termes dans une liste.
 \part
 Observer la convergence de cette suite vers l'un des deux zéros de $f$.
+\part
+Dessiner, sur papier en repère orthonormé, la fonction $g$ ainsi que la première bisectrice. Expliquer à partir du graphique la convergence observée.
 \end{parts}
 
 \question
@@ -48,12 +50,12 @@ Ecrire une fonction python \texttt{point\_fixe} qui prend en arguments une fonct
 \part Tests
 \begin{subparts}
 \subpart
-Tester \texttt{point\_fixe} avec $g(x) = 1 + 1/x, x_0 = 1.0, \epsilon = 10^{-12}$
+Tester \texttt{point\_fixe} avec $g(x) = 1 + 1/x, x_0 = 1.6, \epsilon = 10^{-12}$. Vers quelle racine y-a-t'il convergence ?
 \subpart
-Tester \texttt{point\_fixe} avec $g(x) = 1 + 1/x, x_0 = -0.6, \epsilon = 10^{-12}$. Est ce que la méthode converge dans ce cas ?
+Tester \texttt{point\_fixe} avec $g(x) = 1 + 1/x, x_0 = -0.6, \epsilon = 10^{-12}$. Vers quelle racine y-a-t'il convergence ?
+\subpart 
+Sur le graphique, examiner la pente de $g$ aux points fixes. Un point fixe $r$ d'une fonction $g$ tel que $\vert g'(r) \vert < 1$ est dit attractif; si $\vert g'(r) \vert > 1$ il est dit répulsif. A partir de ça, expliquer le résultat des tests ci-dessus.
 \end{subparts}
-\part 
-Dessiner, sur papier en repère orthonormé, la fonction $g$ ainsi que la première bisectrice et examiner la pente de $g$ aux points fixes. Un point fixe $r$ d'une fonction $g$ tel que $\vert g'(r) \vert < 1$ est dit attractif; si $\vert g'(r) \vert > 1$ il est dit répulsif. A partir de ça, expliquer le résultat des tests ci-dessus.
 \end{parts}
 
 
@@ -62,7 +64,9 @@ On veut, ici encore, calculer un zéro d'une fonction $f$. La {\bf méthode de N
 $g(x) = x - \frac{f(x)}{f'(x)}$.
 \begin{parts}
 \part
-Vérifier que les points fixes de $g$ sont bien les zéros de $f$.
+Vérifier algébriquement que les points fixes de $g$ sont les zéros de $f$.
+\part
+Interpréter géométriquement la méthode de Newton.
 \part
 Ecrire une fonction python \texttt{newton} qui prend en arguments une fonction $f$, sa dérivée $df$, une valeur initiale $x_0$, un réel positif $\epsilon$, et qui renvoie une approximation $r$ d'une racine de la fonction $f$. Condition d'arrêt : $\vert x_{n+1} - x_n \vert < \epsilon$.
 \part Tests
@@ -77,6 +81,10 @@ Tester \texttt{newton} avec $f(x) = x^2 - x - 1, x_0 = -1.0, \epsilon = 10^{-12}
 \question
 Toujours à la recherche des zéros de $f$ La {\bf méthode de la sécante} est une méthode itérative où chaque approximation est construite à partir des deux approximations précédentes. On doit donc partir de deux valeurs initiales distinctes, $x_0, x_1$ (en général les bornes d'un encadrement de la racine cherchée), puis on calcule par récurrence les termes de la suite $x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}f(x_n)$. L'avantage sur la méthode de Newton est qu'on n'a pas besoin de la dérivée de $f$.
 \begin{parts}
+\part
+Vérifier algébriquement que les points fixes de $g$ sont les zéros de $f$.
+\part
+Interpréter géométriquement la méthode de la sécante.
 \part
 Ecrire une fonction python \texttt{secante} qui prend en arguments une fonction $f$, deux valeurs initiales $x_0, x_1$, un réel positif $\epsilon$, et qui renvoie une approximation $r$ d'une racine de la fonction $f$. Condition d'arrêt : $\vert x_{n+1} - x_n \vert < \epsilon$.
 \part Tests
