@@ -14,34 +14,36 @@
 \maketitle
 
 
-Dans ce TP, on va apprendre quelques méthodes numériques pour calculer, approximativement, l'intégrale d'une fonction sur un intervalle compact (borné, fermé).
+Dans ce TP, on présente quelques méthodes numériques pour calculer, approximativement, l'intégrale d'une fonction sur un intervalle compact (borné, fermé).
 
 \begin{questions}
 
 \question
-Création d'une fonction simple et représentation graphique.
+Création d'une fonction simple et représentation graphique [Python : module \texttt{math}; Maths : calcul exact d'une intégrale].
 \begin{parts}
 \part
-Ecrire la fonction $f(x) = 1 - x^2$ sous forme d'une fonction python. 
+Ecrire la fonction $f(x) = \sqrt{1 - x^2}$ 
+sous forme d'une fonction python (on utilisera la fonction \texttt{sqrt()} du module \texttt{math}).
 \part
-Représentation graphique sur l'intervalle $\left[0, 1\right]$.
+Représentation graphique sur l'intervalle $[-0.5, 0.5]$.
 \part
 Calculer, à la main, l'intégrale $I$ de cette fonction sur l'intervalle donné.
 \end{parts}
 
 \question
-Calcul approché de $I$ au moyen de la {\bf méthode du point milieu}.
+Calcul approché de $I$ au moyen de la {\bf méthode du point milieu} [Python : module \texttt{time}, création et écriture d'un tableau de résultats dans un fichier texte au moyen des fonctions \texttt{open()} et \texttt{write()}; Maths : approximation d'une fonction par une fonction en escalier, approximation numérique d'une intégrale].
 \begin{parts}
 \part
 Représenter graphiquement $f$ sur papier, repère orthonormé, unité = $8$ cm.
 \part
-On définit une subdivision régulière $x_0, \cdots, x_4$ de l'intervalle d'intégration $[0, 1]$ en $n=4$ parts égales (on a donc $x_0 = 0, x_1 = 0.25, \cdots, x_4 = 1$. On note $c_1, \cdots, c_4$ les milieux de ces sous-intervalles. Pour chaque $k = 1, \cdots, 4$, dessiner le {\bf rectangle} de base $[x_{k-1}, x_k]$ et de hauteur $f(c_k)$, et calculer sa surface $s_k$.
+On définit une subdivision régulière $x_0, \cdots, x_4$ de l'intervalle d'intégration $[0, 1]$ en $n=4$ parts égales (on a donc $x_0 = -0.5, x_1 = -0.25, \cdots, x_4 = 0.5$. On note $c_1, \cdots, c_4$ les milieux de ces sous-intervalles. Pour chaque $k = 1, \cdots, 4$, dessiner le {\bf rectangle} de base $[x_{k-1}, x_k]$ et de hauteur $f(c_k)$, et calculer sa surface $s_k$. La méthode du point milieu consiste à prendre la somme $S_4 = \sum\limits_{i=1}^4 s_k$ comme approximation de $I$\part
+Calculer l'erreur commise $\vert S_4 - I \vert$.
 \part
-La méthode du point milieu consiste à prendre la somme $S_4 = \sum\limits_{i=1}^4 s_k$ comme approximation de $I$. Calculer l'erreur commise $\vert S_4 - I \vert$.
+Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
 \part
-Importer le module \texttt{time}. Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
+Ecrire une fonction python \texttt{point\_milieu} qui prend en arguments une foncion $f$, des bornes $a, b$ et un entier $n$ et qui renvoie l'intégrale approchée de $f$ sur $[a, b]$ au moyen de la méthode du point milieu.
 \part
-Recommencer les calculs précédents pour $n = 10^k$, k variant de $1$ à $6$, et remplir, manuellement, le tableau ci-dessous:
+Tester \texttt{point\_milieu} avec $f(x) = \sqrt{1 - x^2}$, $a=-0.5, b=0.5$ et $n = 10^k$, k variant de $1$ à $6$, puis remplir manuellement le tableau ci-dessous:
 \begin{center}
 \begin{tabular}{r | c | c}
 {n} & erreur & temps (sec.)\\
@@ -57,19 +59,20 @@ $1000000$ & {} & {}
 \part
 En python, recréer automatiquement le tableau obtenu au moyen d'une boucle \texttt{for}. Utiliser  les fonction \texttt{print} pour voir le tableau à l'écran et \texttt{write} pour écrire le tableau dans un fichier texte.\\
 Voir documentation à l'adresse \url{https://docs.python.org/3/tutorial/inputoutput.html}.\\
-Exemple de tableau produit automatiquement et envoyé à l'écran:
+Exemple de tableau produit automatiquement en python:
 \VerbatimInput{table.txt}
 \end{parts}
 
 \question
-Dans la méthode du point milieu, on a approximé la fonction $f$ sur l'intervalle $[x_{k-1}, x_k]$ par la fonction constante prenant la même valeur que $f$ en $c_k$, où $c_k$ est le milieu de $[x_{k-1}, x_k]$; dans la {\bf méthode du trapèze}, on approxime $f$ sur cet intervalle par la fonction affine prenant la même valeur que $f$ en $x_{k-1}$ et $x_k$.\\
-Refaire le même travail que précédemment avec la méthode du trapèze.
-
+Dans la méthode du point milieu, on a approximé la fonction $f$ sur l'intervalle $[x_{k-1}, x_k]$ par la fonction constante prenant la même valeur que $f$ en $c_k$, le milieu de $[x_{k-1}, x_k]$; dans la {\bf méthode du trapèze}, on approxime $f$ sur cet intervalle par la fonction affine qui prend les mêmes valeurs que $f$ en $x_{k-1}$ et $x_k$.\\
+Reprendre le travail précédent, mais avec la méthode du trapèze.
 
 \question
-Dans la méthode du point milieu, on a approximé $f$ sur l'intervalle $[x_{k-1}, x_k]$ par une fonction constante - polynôme de degré $0$; dans la méthode du trapèze, on a approximé $f$ sur cet intervalle par une fonction affine - polynôme de degré $1$; dans la {\bf méthode de Simpson}, on approxime $f$ sur l'intervalle $[x_{k-1}, x_k]$ par le polynôme de degré $2$ qui prend la même valeur que $f$ en $x_{k-1}$, $c_k$ et $x_k$.\\
-Refaire le même travail que précédemment avec la méthode de Simpson.
+Dans la méthode du point milieu, on a approximé $f$ sur l'intervalle $[x_{k-1}, x_k]$ par une fonction constante - polynôme de degré $0$; dans la méthode du trapèze, on a approximé $f$ sur cet intervalle par une fonction affine - polynôme de degré $1$; dans la {\bf méthode de Simpson}, on approxime $f$ sur l'intervalle $[x_{k-1}, x_k]$ par le polynôme de degré $2$ qui prend les mêmes valeurs que $f$ en $x_{k-1}$, $c_k$ et $x_k$.\\
+Reprendre le travail précédent, mais avec la méthode de Simpson.
 
+\question
+Comparer les trois méthodes précédentes.
 
 \end{questions}
 
