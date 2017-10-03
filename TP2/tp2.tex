@@ -35,7 +35,7 @@ Calcul approché de $I$ au moyen de la {\bf méthode du point milieu}.
 \part
 Représenter graphiquement $f$ sur papier, repère orthonormé, unité = $8$ cm.
 \part
-On définit une subdivision régulière $x_0, \cdots, x_4$ de l'intervalle d'intégration $[0, 1]$ en $n=4$ parts égales (on a donc $x_0 = 0, x_1 = 0.25, \cdots, x_4 = 1$. On note $c_1, \cdots, c_4$ les milieux de ces sous-intervalles. Pour chaque $k = 1, \cdots, 4$, dessiner le rectangle de base $[x_{k-1}, x_k]$ et de hauteur $f(c_k)$, et calculer sa surface $s_k$.
+On définit une subdivision régulière $x_0, \cdots, x_4$ de l'intervalle d'intégration $[0, 1]$ en $n=4$ parts égales (on a donc $x_0 = 0, x_1 = 0.25, \cdots, x_4 = 1$. On note $c_1, \cdots, c_4$ les milieux de ces sous-intervalles. Pour chaque $k = 1, \cdots, 4$, dessiner le {\bf rectangle} de base $[x_{k-1}, x_k]$ et de hauteur $f(c_k)$, et calculer sa surface $s_k$.
 \part
 La méthode du point milieu consiste à prendre la somme $S_4 = \sum\limits_{i=1}^4 s_k$ comme approximation de $I$. Calculer l'erreur commise $\vert S_4 - I \vert$.
 \part
@@ -59,8 +59,16 @@ En python, recréer automatiquement le tableau obtenu au moyen d'une boucle \tex
 Voir documentation à l'adresse \url{https://docs.python.org/3/tutorial/inputoutput.html}.\\
 Exemple de tableau produit automatiquement et envoyé à l'écran:
 \VerbatimInput{table.txt}
-
 \end{parts}
+
+\question
+Dans la méthode du point milieu, on a approximé la fonction $f$ sur l'intervalle $[x_{k-1}, x_k]$ par la fonction constante prenant la même valeur que $f$ en $c_k$, où $c_k$ est le milieu de $[x_{k-1}, x_k]$; dans la {\bf méthode du trapèze}, on approxime $f$ sur cet intervalle par la fonction affine prenant la même valeur que $f$ en $x_{k-1}$ et $x_k$.\\
+Refaire le même travail que précédemment avec la méthode du trapèze.
+
+
+\question
+Dans la méthode du point milieu, on a approximé $f$ sur l'intervalle $[x_{k-1}, x_k]$ par une fonction constante - polynôme de degré $0$; dans la méthode du trapèze, on a approximé $f$ sur cet intervalle par une fonction affine - polynôme de degré $1$; dans la {\bf méthode de Simpson}, on approxime $f$ sur l'intervalle $[x_{k-1}, x_k]$ par le polynôme de degré $2$ qui prend la même valeur que $f$ en $x_{k-1}$, $c_k$ et $x_k$.\\
+Refaire le même travail que précédemment avec la méthode de Simpson.
 
 
 \end{questions}
