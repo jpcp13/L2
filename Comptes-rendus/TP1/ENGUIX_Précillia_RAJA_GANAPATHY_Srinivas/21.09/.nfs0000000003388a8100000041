@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{TP1}
+\author{RAJA GANAPATHY Srinivas ENGUIX Precillia}
+
+
+\begin{document}
+\maketitle
+        
+\section{Création de la fonction F}
+
+        Nous avons crée la fonction suivante:
+$$f(x) = x^2 - x - 1$$
+
+Pour pouvoir afficher le graphique de la fonction sur l'intervalle [-1,2], nous avons commencé par definir la ligne des abscisses à -1, le pas entre chaque point est de 0.25.
+Pour construire le graphique nous avons utilisé une boucle while qui s'arrête quand x est inferieur à 2.
+On affiche les points sur le graphique à l'aide de la commande print.
+Pour afficher le graphique à l'ecran, on utilise le module matplotlib.pylot.
+On a observé la présence des deux zero qui se situe à environ -0.61 et 1.61.
+Ce sont les deux racines réels de la fonction f(x).
+
+Pour pouvoir sauvegarder la figure nous utilisons la commande plt.savefig('nom du fichier.png'), mais nous constatons que lorsque nous changeons les paramètres du graphique, le changement n'a pas lieu directement, il met un certain temps à s'éxécuter.
+
+\section{Utilisation de la méthode du point fixe}
+
+Nous avons cree la fonction suivante:
+$$g(x)= 1 + ( 1 / x )$$
+
+Nous observons que nous ne sommes plus obligés d'utiliser la boucle while pour créer la listes des points, la commande np.arange(x.debut,x.fin,pas) remplace l'intégralite de la boucle while.
+Pour calculer les 25 premiers termes de la suite, nous avons utilisé la commande i in range.
+Pour la verification nous sommes parti de f(x) :
+$$f(x) = x^2 - x - 1 = 0 $$
+
+$$<=> x^2 - x = 1$$
+
+$$<=> x - 1 = (1 /à= x)$$
+
+$$<=> x = (1 / x) + 1 = g(x)$$
+
+On remarque que les points converge vers 1.61 qui est l'un des deux zero de f.
+
+Lors de l'affichage du graphe, on remarque que ça n'affiche que les grapgique de la fonction g, mais aussi celui de la fonction f.
+
+\section{Implémentation de la fonction point fixe}
+ 
+Lors de l'ecriture de la fonction "point fixe", nous avons rencontré seulement des problémes de syntaxes et d'indentation, par exemple, nous oublions souvent les ":" à la fin des boucles et des def.
+Lors de deux tests, nous avons remarqué que le test 1 que les points partent de 2 et convergent vers 1.61 qui est un des 0 de f. Pour le test 2 les points partent de -0.6 et convergent vers 1.61. Donc les deux méthodes convergent.
+
+\section{Méthode de Newton}
+
+Nous n'arrivions pas a définir la fonction Newton car pour la commande "print('x vaut {0} et cpt vaut {1}').format(x,cpt)" entre la paranthese et le mot 'format' nous avions mit une virgule au lieu de mettre un point.
+Pour vérifier que les points fixes de g sont bien les zéros de f, nous avons fait les calculs à la main, et nous avons remarqué que ceux sont bien les zéros de f.
+
+\section{Méthode de la sécante}
+
+Dans la fonction sécante, on a rajouté un "x2" pour avoir plus de plus de visibilité. 
+rajout de :
+delta=abs(num)
+                x1=x2
+        return x2    
+ x2 = x1 - num/den*f(x1) chg x0->x2
+
+\section{Méthode de dichotomie}
+
+La fonction dichotomie n'était pas la fonction la plus compliquée à créer, car on avait déjà étudié cette fonction en algorithme.
+Nos tests ne fonctionnaient pas, nous ne savions pas si c'était la fonction elle-même qui ne fonctionnait pas, car ça compilait mais nous n'avions pas l'affichage des tests. Finalement nous avons compris que les tests ne fonctionnaient pas car nous n'avions pas défini a, b, et epsi. Une fois ces paramétres défini, les tests ont fonctionnés.
+ 
+test fonctionne pas car on avait pas definit a,b et epsi avant d'appeler la fonction'
+
+\end{document}
