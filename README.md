@@ -1,1 +1,1 @@
-# L2_2017
+# L2_2017, info pour les maths
