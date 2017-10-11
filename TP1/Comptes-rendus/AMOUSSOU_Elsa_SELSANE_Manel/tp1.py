@@ -11,12 +11,9 @@ def df(x):
 def g(x) : 
     return 1+ 1.0/x 
     
-   
-
 # Exercice 1
 
 #a)
-
 x, dx = -1.0, 0.25
 X, Y, Points = [], [], [] 
 
@@ -40,7 +37,6 @@ for point in Points:
     	print('{0:10.4f} {1:10.4f}'.format(x, y)) 
  
 #b)
-       
 import matplotlib.pyplot as plt
 plt.plot(X, Y,'r') 
 plt.grid()
@@ -50,7 +46,6 @@ plt.show()
 # Exercice 2
 
 #a
-
 # Representation sur l'intervalle positif 
 import numpy as np
 t = np.arange(1.0, 2.0, 0.01)
@@ -65,11 +60,8 @@ plt.plot(t, g(t), 'r-', t, t, 'b')
 plt.grid('on')
 plt.axis('equal')
 plt.show()
- 
 
 #b)
-#
-
 y=" Suite xn\n"
 print(y)
 
@@ -86,11 +78,9 @@ print(xx)
 
 #c)Voir compte rendu	
 
-
 # Exercice 3
 
 #a)
-	
 def point_fixe(g, x0, epsi):
  #x1 joue le role de xn+1
  #x joue le role de xn
@@ -102,11 +92,10 @@ def point_fixe(g, x0, epsi):
 		x1=g(x) 
 		d=abs(x1-x)
 		x=x1
-		print('x vaut : {0} et compteur vaut {1}\n').format(x, cpt)
+		print('x vaut : {0} et compteur vaut {1}\n'.format(x, cpt))
 	return x
 		
 #b)
-
 z=" Test de point fixe\n"
 print(z)
 
@@ -122,13 +111,11 @@ epsi=10**-12
 
 r=point_fixe(g,x0,epsi)
 
-
 #c)Voir compte rendu
 
 # Exercice 4
 
 #a)
-
 a='Verification que les points fixe  de g sont les zero de f\n'
 print(a)
 
@@ -140,7 +127,6 @@ r=point_fixe(g,x0,epsi)
 
 #b)
 
-
 def newton(f,df,x0,epsi):
 	d = 2*epsi
 	x = x0
@@ -150,7 +136,7 @@ def newton(f,df,x0,epsi):
 		x1=x-f(x)/df(x)
 		d = abs(x-x1)
 		x = x1
-		print('x vaut : {0} et compteur vaut {1}\n').format(x, cpt)
+		print('x vaut : {0} et compteur vaut {1}\n'.format(x, cpt))
 	return x1
 	
 #c)
@@ -178,22 +164,21 @@ r="Test de Secante \n"
 print(r)
 
 def secante(f, x0, x1, epsi):
-#x0 va jouer le role de xn-1
-#x1 celui de xn
-  	d = 2*epsi
-	cpt = 0
-	while d > epsi and cpt < 40 :
-		cpt += 1
-		num = x1-x0
-		d = abs(num)
-		den = f(x1)-f(x0)
-		x2 = x1-num/den*f(x1)
-		x0 = x1
-		x1 = x2
-		print('x vaut : {0} et compteur vaut {1}\n').format(x2, cpt)
-	return x2
-
-
+    #x0 va jouer le role de xn-1
+    #x1 celui de xn
+    d = 2*epsi
+    cpt = 0
+    while d > epsi and cpt < 40 :
+        cpt += 1
+        num = x1-x0
+        d = abs(num)
+        den = f(x1)-f(x0)
+        x2 = x1-num/den*f(x1)
+        x0 = x1
+        x1 = x2
+        print('x vaut : {0} et compteur vaut {1}\n'.format(x2, cpt))
+    return x2
+    
 #b)
 #Test 1
 x0 = 1.5

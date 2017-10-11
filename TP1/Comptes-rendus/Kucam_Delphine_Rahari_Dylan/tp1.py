@@ -16,7 +16,7 @@ def point_fixe(g, x0, epsi) :
 		x1 = g(x) # x1 joue le role de x_n+1
 		delta = abs(x1 - x)
 		x = x1
-		print x
+		print (x)
 	return x, nbiter
 
 
@@ -35,7 +35,7 @@ def newton(f, df, x0, epsi) :
 		x1 = x-((f(x))/(df(x)))
 		delta = abs(x1 - x)
 		x = x1
-		print x
+		print (x)
 	return x, nbiter
 
 def dichotomie(f, a, b, epsi):	
