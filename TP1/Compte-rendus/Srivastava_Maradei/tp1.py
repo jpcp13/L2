@@ -65,9 +65,9 @@ def point_fixe(g,x0,epsi):
 
 xo=1.0
 epsi=1e-12
-v=h(g,1.0,epsi)
-print(r)
-print(g(r))
+#~ v=h(g,1.0,epsi)
+#~ print(r)
+#~ print(g(r))
 
 
 #Exo 4
@@ -129,7 +129,7 @@ def dichotomie(f, a, b, epsi):
 		point = (a,b)
 	return point, cpdichotomie	
 
-a = dichotomie(j,1.5,2.0,1e-12)
+#~ a = dichotomie(j,1.5,2.0,1e-12)
 
 """pf3 = point_fixe(f,1.0,1e-3)
 pf6 = point_fixe(f,1.0,1e-6)

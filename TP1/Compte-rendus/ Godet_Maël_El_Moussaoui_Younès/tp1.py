@@ -27,7 +27,7 @@ def newton(h,x0,epsi):
     delta = 2*epsi
     nbiter2 = 0
     while delta>epsi and nbiter2<150:
-	nbiter2 += 1
+        nbiter2 += 1
         x1 = h(x0)
         delta = abs(x1 - x0)
         x0 = x1
@@ -38,7 +38,7 @@ def secante(f, x0, x1, epsi):
     delta = 2*epsi
     nbiter3=0
     while delta>epsi and nbiter3<150:
-	nbiter3 += 1
+        nbiter3 += 1
         num = x1 - x0
         den = f(x1)-f(x0)
         x2 = x1 - (num/den)*f(x1)
