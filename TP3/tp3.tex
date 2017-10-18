@@ -1,0 +1,142 @@
+\documentclass{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[francais]{babel}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+
+\title{TP3\\ Equations différentielles}
+
+\begin{document}
+\maketitle
+
+
+Dans ce TP, on présente quelques méthodes pour intégrer numériquement sur un intervalle $t \in [0, T]$, une équation différentielle ordinaire - dite EDO - c'est-à-dire de la forme
+\begin{align*}
+u'(t) & =  f(t, u(t))\\
+u(0)  & = u_0
+\end{align*}
+la fonction $f$ et la valeur initiale $u_0$ sont donnés; la fonction $u$ est inconnue, c'est la solution cherchée.
+
+\begin{questions}
+
+\question
+Considérons l'EDO très simple
+$$u'(t) =  -u(t), \quad u(0)  =  1.0$$
+
+Le problème est ici de déterminer la solution $u$; on prendra par exemple comme intervalle $t \in [0, 2]$.
+\begin{parts}
+\part
+Calculer à la main la solution $u$ de l'EDO ci-dessus, et la dessiner sur papier.
+\part
+Sur ordinateur, représenter graphiquement $u$ à l'aide du module \texttt{matplotlib}; on créera le vecteur d'abscisses au moyen de \texttt{numpy.linspace} et on sauvera la figure au format \texttt{png} dans le répertoire courant.
+\end{parts}
+
+\question
+Calcul approché de $u$ au moyen de la {\bf méthode d'Euler}.
+\begin{parts}
+\part
+On divise l'intervalle $[0, T]$ (ici dans l'exemple,$T=2.0$) en $n$ parties égales, par exemple $n=10$, puis on pose $h=T/n$, ce qui fournit une subdivision $t_0 = 0, t_1 = h, t_2 = 2h, \cdots, t_n = T$. On va maintenant calculer, approximativement, la valeur de $u$ aux points $t_k$ de la subdivision.
+\begin{itemize}
+\item
+$u(t_0)$ ne pose pas de problème car on connait la valeur exacte $u(t_0)=u_0$,\\
+\item 
+pour $u(t_1)$ on utilise l'approximation $u'(t_0) \approx \frac{u(t_1)-u(t_0)}{h}$, du fait que $h$ est assez petit;\\
+on a donc $\frac{u(t_1)-u(t_0)}{h} \approx u'(t_0) = -u(t_0)$, c'est-à-dire $u(t_1) \approx u(t_0) - hu(t_0) = (1-h)u_0$;\\
+on a donc trouvé une approximation de $u(t_1)$; posons $u_1 = (1-h)u_0$.
+\item 
+pour $u(t_2)$ on utilise l'approximation $u'(t_0) \approx \frac{u(t_1)-u(t_0)}{h}$, du fait que $h$ est assez petit;\\
+on a donc $\frac{u(t_1)-u(t_0)}{h} \approx u'(t_0) = -u(t_0)$, c'est-à-dire $u(t_1) \approx u(t_0) - hu(t_0) = (1-h)u_0$;\\
+on a donc trouvé une approximation de $u(t_1)$; posons $u_1 = (1-h)u_0$.
+\end{itemize}
+
+\end{parts}
+\end{questions}
+\end{document}
+
+On part de $u'(t_k) = -u(t_k), \quad u(t_0)=u_0$; \\
+puis on utilise l'approximation $u'(t_k) \approx \frac{u(t_{k+1})-u(t_k)}{h}$, du fait que $h$ est assez petit; \\
+ce qui donne $\frac{u(t_{k+1})-u(t_k)}{h} \approx  -u(t_k),\quad u(t_0) = u_0$.
+on pose enfin $u_k = u(t_k)
+
+On obtient donc une suite d'approximations
+\part
+On définit une subdivision régulière $x_0, \cdots, x_4$ de l'intervalle d'intégration $[0, 1]$ en $n=4$ parts égales (on a donc $x_0 = -0.5, x_1 = -0.25, \cdots, x_4 = 0.5$. On note $c_1, \cdots, c_4$ les milieux de ces sous-intervalles. Pour chaque $k = 1, \cdots, 4$, dessiner le {\bf rectangle} de base $[x_{k-1}, x_k]$ et de hauteur $f(c_k)$, et calculer sa surface $s_k$. La méthode du point milieu consiste à prendre la somme $S_4 = \sum\limits_{i=1}^4 s_k$ comme approximation de $I$\part
+Calculer l'erreur commise $\vert S_4 - I \vert$.
+\part
+Utiliser la fonction \texttt{clock()} du module \texttt{time} pour mesurer le temps de calcul de votre intégrale.
+\part
+Ecrire une fonction python \texttt{point\_milieu} qui prend en arguments une foncion $f$, des bornes $a, b$ et un entier $n$ et qui renvoie l'intégrale approchée de $f$ sur $[a, b]$ au moyen de la méthode du point milieu.
+\part
+Tester \texttt{point\_milieu} avec $f(x) = \sqrt{1 - x^2}$, $a=-0.5, b=0.5$ et $n = 10^k$, k variant de $1$ à $6$, puis remplir manuellement le tableau ci-dessous:
+\begin{center}
+\begin{tabular}{r | c | c}
+{n} & erreur & temps (sec.)\\
+\hline
+$10$ & {} & {}\\
+$100$ & {} & {}\\
+$1000$ & {} & {}\\
+$10000$ & {} & {}\\
+$100000$ & {} & {}\\
+$1000000$ & {} & {}
+\end{tabular}
+\end{center}
+\part
+En python, recréer automatiquement le tableau obtenu au moyen d'une boucle \texttt{for}. Utiliser  les fonction \texttt{print} pour voir le tableau à l'écran et \texttt{write} pour écrire le tableau dans un fichier texte.\\
+Voir documentation à l'adresse \url{https://docs.python.org/3/tutorial/inputoutput.html}.\\
+Exemple de tableau produit automatiquement en python:
+\VerbatimInput{table.txt}
+\end{parts}
+
+\question
+Dans la méthode du point milieu, on a approximé la fonction $f$ sur l'intervalle $[x_{k-1}, x_k]$ par la fonction constante prenant la même valeur que $f$ en $c_k$, le milieu de $[x_{k-1}, x_k]$; dans la {\bf méthode du trapèze}, on approxime $f$ sur cet intervalle par la fonction affine qui prend les mêmes valeurs que $f$ en $x_{k-1}$ et $x_k$.\\
+Reprendre le travail précédent, mais avec la méthode du trapèze.
+
+\question
+Dans la méthode du point milieu, on a approximé $f$ sur l'intervalle $[x_{k-1}, x_k]$ par une fonction constante - polynôme de degré $0$; dans la méthode du trapèze, on a approximé $f$ sur cet intervalle par une fonction affine - polynôme de degré $1$; dans la {\bf méthode de Simpson}, on approxime $f$ sur l'intervalle $[x_{k-1}, x_k]$ par le polynôme de degré $2$ qui prend les mêmes valeurs que $f$ en $x_{k-1}$, $c_k$ et $x_k$.\\
+Reprendre le travail précédent, mais avec la méthode de Simpson.
+
+\question
+Comparer les trois méthodes précédentes.
+
+\question
+La {\bf méthode de Monte-Carlo} est intéressante pour calculer des surfaces, des volumes, etc., et on pourrait donc l'appliquer au problème ci-dessus. Présentons la méthode en modifiant un peu la situation précédente [Python : module \texttt{numpy.random}; Maths : distribution de probabilité].
+\begin{parts}
+\part
+A l'aide de \texttt{matplotlib.pyplot}, dessiner le cercle unité (centré à l'origine et de rayon $1$). Quelle est la surface du disque unité ?
+\part
+En ligne de commande, à l'aide de la fonction \texttt{numpy.random.rand()}, générer quelques valeurs aléatoires suivant la distribution de loi uniforme sur $[0, 1]$. Même exercice avec une distribution de loi uniforme sur $[-1, 1]$.
+\part
+Générer $N=1000$ points suivant la distribution uniforme sur le carré $[-1, 1]^2$. Faire apparaitre ces $N$ points sur le graphique précédent, en rouge les points intérieurs au disque unité, et en vert les points extérieurs au disque.
+\part
+Compter le nombre $I$ de points intérieurs et le nombre $E$ de points extérieurs. La méthode de Monte-Carlo consiste à prendre le rapport $\frac{I}{N}$ comme approximation de la surface $S$ du disque; calculer l'erreur commise $\vert \frac{I}{N} - S \vert$; à l'aide de \texttt{time.clock()} mesurer le temps de calcul de ce calcul.
+\part
+Ecrire une fonction python \texttt{Monte\_Carlo} qui prend en arguments un entier $N$ et qui renvoie une approximation de la surface du disque unité au moyen de la méthode de Monte-Carlo.
+\part
+Tester \texttt{Monte\_Carlo} avec $N = 10^k$, k variant de $1$ à $6$, puis créer automatiquement, et l'enregistrer dans un fichier texte, un tableau de résutats du modèle ci-dessous:
+\begin{center}
+\begin{tabular}{r | c | c}
+{N} & erreur & temps (sec.)\\
+\hline
+$10$ & {} & {}\\
+$100$ & {} & {}\\
+$1000$ & {} & {}\\
+$10000$ & {} & {}\\
+$100000$ & {} & {}\\
+$1000000$ & {} & {}
+\end{tabular}
+\end{center}
+\part
+Reprendre le travail qui précède avec le calcul du volume de la boule unité par la méthode de Monte-Carlo.
+
+
+
+
+
+
+
