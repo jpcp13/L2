@@ -25,7 +25,6 @@ La fonction $f$, qui prend en argument un couple de réels et qui renvoie un ré
 \question
 Exemple : considérons l'EDO très simple
 $$u'(t) =  -u(t), \quad u(0)  =  1.0$$
-
 Le problème est ici de déterminer la solution $u$.
 \begin{parts}
 \part
@@ -48,13 +47,25 @@ On écrit $u'(t_k) \approx \frac{u(t_{k+1})-u(t_k)}{h}$, approximation d'autant 
   $u(t_{k+1}) \approx u_k + hf(t_k, u_k)$. On a donc trouvé une approximation $u_{k+1}$ de la valeur exacte $u(t_{k+1})$, à savoir 
 $$u_{k+1} = u_k + hf(t_k, u_k)$$
 Cette formule permet, par récurrence, de calculer une suite d'approximations $u_k$, à condition que l'on connaisse une première approximation $u_0$ de $u(t_0)$; mais pour $u_0$ on peut bien sûr prendre la valeur de la condition initiale donnée par l'EDO.
-
 \begin{parts}
 \part
 Calculer la suite $u_k$, définie par la méthode d'Euler, pour l'exemple ci-dessus; on prendra $T=2.0$ et $n=10$.
 \part
 Représenter sur le même graphique la solution exacte $u$ et les points $(t_k, u_k)$; faire le travail sur papier et numériquement à l'aide de \texttt{matplotlib}.
-
 \end{parts}
+
+\question
+Quelques calculs d'intégrales supplémentaires, toujours à l'aide de la méthode d'Euler.
+
+Reprendre le travail précédent avec les EDOs suivantes (attention, certaines équations peuvent être facilement intégrées à la main, d'autres non).
+\begin{align} 
+u'(t) &=  -u(t) + t, & u(0)  &=  1.0 \\ 
+u'(t) &=  u^2(t), & u(0)  &=  1.0 \\ 
+u'(t) &=  u^2(t) - t, & u(0)  &=  1.0
+\end{align}
+
+\question
+
+
 \end{questions}
 \end{document}
