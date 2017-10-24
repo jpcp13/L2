@@ -65,9 +65,12 @@ u'(t) &=  u^2(t) - t, & u(0)  &=  1.0
 \end{align}
 
 \question
-Nous montrons maintenant comment intégrer une EDO d'ordre supérieur. Prenons l'exemple de l'oscillateur harmonique (modélisation du ressort) qui est une EDO d'ordre $2$
+Nous montrons maintenant comment intégrer une EDO d'ordre supérieur. 
+Prenons l'exemple de l'oscillateur harmonique (modélisation du ressort) qui est une EDO d'ordre $2$
 $$u''(t) + \omega^2 u(t) = 0,\quad u(0) = u_0, u'(0) = v_0$$
 où $\omega, u_0, v_0$ sont des scalaires donnés; $\omega$ s'appelle la pulsation, $u_0$ la position initiale, $v_0$ la vitesse initiale.
+
+
 
 \end{questions}
 \end{document}
