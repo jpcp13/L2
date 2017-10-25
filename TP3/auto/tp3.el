@@ -14,5 +14,11 @@
     "amsfonts"
     "babel"
     "fancyvrb"
-    "hyperref")))
+    "hyperref")
+   (LaTeX-add-labels
+    "edo_0"
+    "euler"
+    "harmo_2"
+    "harmonic"
+    "harmo_1")))
 

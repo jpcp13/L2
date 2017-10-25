@@ -57,17 +57,30 @@ Représenter sur le même graphique la solution exacte $u$ et les points $(t_k, 
 \question
 Ecrire une fonction python \texttt{euler} qui prend en arguments une foncion $f$ de deux variables scalaires $t, u$, une valeur initiale $u_0$, un réel $T$, un entier $n$, et qui renvoie la liste $tt$ des $t_k$ et la liste $uu$ des $u_k$, valeurs obtenues par la méthode d'Euler (alternativement, on pourra renvoyer $tt$ et $uu$ sous forme de \texttt{numpy arrays}.
 \question
+\begin{parts}
+\part
+Appliquer la fonction \texttt{euler} à l'exemple précédentci-dessus (on aura besoin d'écrire la fonction $f$ de l'EDO - fonction de deux variables - dans une fonction python) et retrouver les résultats précédents.
+\part
 Reprendre le travail précédent avec les EDOs suivantes (attention, certaines équations peuvent être facilement intégrées à la main, d'autres non).
 \begin{align} 
 u'(t) &=  -u(t) + t, & u(0)  &=  1.0 \\ 
 u'(t) &=  u^2(t), & u(0)  &=  1.0 \\ 
 u'(t) &=  u^2(t) - t, & u(0)  &=  1.0
 \end{align}
+\end{parts}
 
 \question
-Nous montrons maintenant comment intégrer une EDO d'ordre supérieur. Prenons l'exemple de l'oscillateur harmonique (modélisation du ressort)
+Nous montrons maintenant comment intégrer une EDO d'ordre supérieur. 
+Prenons l'exemple de l'oscillateur harmonique (modélisation du ressort) qui est une EDO d'ordre $2$
 $$u''(t) + \omega^2 u(t) = 0,\quad u(0) = u_0, u'(0) = v_0$$
-où $\omega, u_0, v_0$ sont des scalaires donnés; $\omega$ s'appelle la pulsation, $u_0$ est la position initiale, $v_0$ est la vitesse initiale.
+où $\omega, u_0, v_0$ sont des scalaires donnés; $\omega$ s'appelle la pulsation, $u_0$ la position initiale, $v_0$ la vitesse initiale.
+
+
 
 \end{questions}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
