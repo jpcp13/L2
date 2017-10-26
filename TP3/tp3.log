@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  26 OCT 2017 10:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  26 OCT 2017 10:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -741,7 +741,7 @@ cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tp3.pdf (2 pages, 137022 bytes).
+Output written on tp3.pdf (2 pages, 137005 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream

@@ -109,9 +109,9 @@ Il est maintenant facile de résoudre cette EDO numériquement, il suffit de lui
 
 \begin{parts}
 \part
-Calculer, à la main, la solution exacte de l'EDO (\ref{harmo_2}).
+Calculer, à la main, la solution exacte de l'EDO (\ref{harmo_1}).
 \part
-Ecrire la fonction $F$ de l'EDO (\ref{harmo_2}) - fonction de deux variables $t, U$ - dans une fonction python; on fixera les valeurs initiales $u_0 = 1.0$ et $v_0 = 0.0$.
+Ecrire la fonction $F$ de l'EDO (\ref{harmonic}) - fonction de deux variables $t, U$ - dans une fonction python; on choisira $\omega = 1.0$.
 \part
 Modifier la fonction \texttt{euler}, pour qu'elle prenne quatre arguments : une fonction python $F$ - fonction des deux variables $t \in \mathbb{R}, U \in \mathbb{R}^2$ -, un vecteur $U_0 \in \mathbb{R}^2$, un réel $T$ et un entier $n$. \texttt{euler} renverra deux \texttt{numpy arrays} : $tt$ contenant les valeurs $t_k$ et $UU$ contenant les valeurs $U_k$, obtenues par la méthode d'Euler.
 \part
