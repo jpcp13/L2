@@ -111,9 +111,10 @@ Il est maintenant facile de résoudre cette EDO numériquement, il suffit de lui
 \part
 Calculer, à la main, la solution exacte de l'EDO (\ref{harmo_1}).
 \part
-Ecrire la fonction $F$ de l'EDO (\ref{harmonic}) - fonction de deux variables $t, U$ - dans une fonction python; on choisira $\omega = 1.0$.
+Ecrire la fonction $F$ de l'EDO (\ref{harmonic}) dans une fonction python \texttt{F}; on choisira $\omega = 1.0$.
+\texttt{F} prendra en arguments un flottant \texttt{t}, un numpy array \texttt{U} et renverra le numpy array \texttt{U'}.
 \part
-Modifier la fonction \texttt{euler}, pour qu'elle prenne quatre arguments : une fonction python $F$ - fonction des deux variables $t \in \mathbb{R}, U \in \mathbb{R}^2$ -, un vecteur $U_0 \in \mathbb{R}^2$, un réel $T$ et un entier $n$. \texttt{euler} renverra deux \texttt{numpy arrays} : $tt$ contenant les valeurs $t_k$ et $UU$ contenant les valeurs $U_k$, obtenues par la méthode d'Euler.
+Modifier la fonction \texttt{euler}, pour qu'elle prenne quatre arguments : une fonction python \texttt{F} - elle même prenant deux arguments \texttt{t} flottant et \texttt{U} numpy array -, une valeur initiale \texttt{U0} numpy array, un flottant \texttt{T} et un entier \texttt{n}; \texttt{euler} renverra deux \texttt{numpy arrays} :  \texttt{tt} contenant les valeurs \texttt{tk} et  \texttt{UU} contenant les valeurs  \texttt{Uk} obtenues par la méthode d'Euler.
 \part
 Résoudre numériquement l'EDO (\ref{harmo_2}), avec $\omega = 1.0, T = 4\pi$ et les conditions initiales $u(0) = 1.0, \quad u'(0) = 0.0$; on essaiera différentes valeurs de $n$.
 \part
