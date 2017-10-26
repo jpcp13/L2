@@ -17,6 +17,7 @@
     "hyperref")
    (LaTeX-add-labels
     "edo_0"
+    "exemple_1"
     "euler"
     "harmo_2"
     "harmonic"

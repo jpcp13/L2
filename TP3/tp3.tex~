@@ -17,11 +17,13 @@
 
 
 Dans ce TP, on présente quelques méthodes pour intégrer numériquement sur un intervalle $t \in [0, T]$, une équation différentielle ordinaire - dite EDO - c'est-à-dire de la forme
-$$u'(t) =  f(t, u(t)),\quad u(0) = u_0$$
+\begin{equation}
+\label{edo_0}
+u'(t) =  f(t, u(t)),\quad u(0) = u_0
+\end{equation}
 La fonction $f$, qui prend en argument un couple de réels et qui renvoie un réel, ainsi que la valeur initiale $u_0$ sont donnés; la fonction $u$, qui prend un réel en argument et qui renvoie un réel, est inconnue; c'est la solution cherchée.
 
 \begin{questions}
-
 \question
 Exemple : considérons l'EDO très simple
 $$u'(t) =  -u(t), \quad u(0)  =  1.0$$
@@ -45,7 +47,10 @@ On écrit $u'(t_k) \approx \frac{u(t_{k+1})-u(t_k)}{h}$, approximation d'autant 
  $\frac{u(t_{k+1})-u(t_k)}{h} \approx u'(t_k) = f(t_k, u(t_k))$, puis $u(t_{k+1}) \approx u(t_k) + hf(t_k, u(t_k))$\\
   et enfin 
   $u(t_{k+1}) \approx u_k + hf(t_k, u_k)$. On a donc trouvé une approximation $u_{k+1}$ de la valeur exacte $u(t_{k+1})$, à savoir 
-$$u_{k+1} = u_k + hf(t_k, u_k)$$
+\begin{equation}
+\label{euler}
+u_{k+1} = u_k + hf(t_k, u_k)
+\end{equation}
 Cette formule permet, par récurrence, de calculer une suite d'approximations $u_k$, à condition que l'on connaisse une première approximation $u_0$ de $u(t_0)$; mais pour $u_0$ on peut bien sûr prendre la valeur de la condition initiale donnée par l'EDO.
 \begin{parts}
 \part
@@ -55,28 +60,67 @@ Représenter sur le même graphique la solution exacte $u$ et les points $(t_k, 
 \end{parts}
 
 \question
-Ecrire une fonction python \texttt{euler} qui prend en arguments une foncion $f$ de deux variables scalaires $t, u$, une valeur initiale $u_0$, un réel $T$, un entier $n$, et qui renvoie la liste $tt$ des $t_k$ et la liste $uu$ des $u_k$, valeurs obtenues par la méthode d'Euler (alternativement, on pourra renvoyer $tt$ et $uu$ sous forme de \texttt{numpy arrays}.
+Ecrire une fonction python \texttt{euler} qui prend en arguments une foncion $f$ de deux variables scalaires $t, u$, une valeur initiale $u_0$, un réel $T$, un entier $n$, et qui renvoie deux \texttt{numpy arrays}, $tt$ contenant les valeurs $t_k$ et $uu$ contenant les valeurs $u_k$, obtenues par la méthode d'Euler.
 \question
 \begin{parts}
 \part
 Appliquer la fonction \texttt{euler} à l'exemple précédentci-dessus (on aura besoin d'écrire la fonction $f$ de l'EDO - fonction de deux variables - dans une fonction python) et retrouver les résultats précédents.
 \part
-Reprendre le travail précédent avec les EDOs suivantes (attention, certaines équations peuvent être facilement intégrées à la main, d'autres non).
-\begin{align} 
+Examiner avec les EDOs suivantes (attention, certaines équations peuvent être facilement intégrées à la main, d'autres non).
+\begin{align*} 
 u'(t) &=  -u(t) + t, & u(0)  &=  1.0 \\ 
 u'(t) &=  u^2(t), & u(0)  &=  1.0 \\ 
 u'(t) &=  u^2(t) - t, & u(0)  &=  1.0
-\end{align}
+\end{align*}
 \end{parts}
 
 \question
 Nous montrons maintenant comment intégrer une EDO d'ordre supérieur. 
 Prenons l'exemple de l'oscillateur harmonique (modélisation du ressort) qui est une EDO d'ordre $2$
-$$u''(t) + \omega^2 u(t) = 0,\quad u(0) = u_0, u'(0) = v_0$$
+\begin{equation}
+\label{harmo_2}
+u''(t) + \omega^2 u(t) = 0,\quad u(0) = u_0, \quad u'(0) = v_0
+\end{equation}
 où $\omega, u_0, v_0$ sont des scalaires donnés; $\omega$ s'appelle la pulsation, $u_0$ la position initiale, $v_0$ la vitesse initiale.
+Posons ensuite $v = u'$ et écrivons l'EDO sous la forme
+\begin{equation}
+\label{harmonic}
+\left\{
+\begin{aligned}
+u'(t) &=  v(t) \\
+v'(t) &=  -\omega^2u(t)
+\end{aligned}
+\right.
+\end{equation}
+On pose $U = [u, v]$ et $U_0 = [u_0, v_0]$ de sorte que l'EDO s'écrit maintenant
+\begin{equation}
+\label{harmo_1}
+U'(t) = F(t, U(t)),\quad U(0) = U_0
+\end{equation}
+avec $F(t, [u, v]) = [v, -\omega^2u]$; $F$ est donc une fonction de $\mathbb{R}\times \mathbb{R}^2$ dans $\mathbb{R}^2$.
 
+On a ainsi réécrit l'EDO (\ref{harmo_2}) d'ordre $2$ en l'EDO (\ref{harmo_1}) d'ordre $1$. Attention ! dans le premier cas, la fonction $f$ va de  $\mathbb{R}\times \mathbb{R}$ dans $\mathbb{R}$; dans le deuxième cas, la fonction $F$ va de $\mathbb{R}\times \mathbb{R}^2$ dans $\mathbb{R}^2$.
+Il est maintenant facile de résoudre cette EDO numériquement, il suffit de lui appliquer la méthode d'Euler sous la forme $U_{k+1} = U_k + hf(t_k, U_k)$, avec $U_0$ qui est donnée. C'est une récurrence qui fournit la suite des points $U_k$ de $\mathbb{R}^2$, approximations des valeurs $U(t_k)$, où $U$ est la solution exacte de l'EDO.
 
-
+\begin{parts}
+\part
+Calculer, à la main, la solution exacte de l'EDO (\ref{harmo_2}).
+\part
+Modifier la fonction \texttt{euler}, pour qu'elle prenne en arguments $F$, une foncion de deux variables $t \in \mathbb{R}, U \in \mathbb{R}^2$, $U_0 \in \mathbb{R}^2$, un réel $T$, un entier $n$, et qui renvoie deux \texttt{numpy arrays}, $tt$ contenant les valeurs $t_k$ et $UU$ contenant les valeurs $U_k$, obtenues par la méthode d'Euler.
+\part
+Résoudre numériquement l'EDO (\ref{harmo_2}), avec $\omega = 1.0, T = 4\pi$ et les conditions initiales $u(0) = 1.0, \quad u'(0) = 0.0$; on écrira la fonction $F$ dans une fonction python; on prendra différentes valeures de $n$.
+\part
+Faire trois graphiques :
+\begin{subparts}
+\subpart
+ position $u$ en fonction du temps $t$
+\subpart
+vitesse $v$ en fonction du temps $t$
+\subpart
+vitesse $v$ en fonction de position $u$
+\end{subparts}
+Sur chaque graphique, représenter la solution exacte et la solution approchée donnée par la méthode d'Euler.
+\end{parts}
 \end{questions}
 \end{document}
 
