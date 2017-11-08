@@ -8,13 +8,13 @@ from time import clock
 from exo1 import f
 
 def point_milieu(f,a,b,n) : 
-	h = ( b - a ) / n
-	S = 0
-	for i in range (n):
-		c = a + (h/2) * (2*i + 1)
-		s = h * f(c)
-		S+= s
-	return S
+    h = ( b - a ) / n
+    S = 0
+    for i in range (n):
+        c = a + (h/2) * (2*i + 1)
+        s = h * f(c)
+        S+= s
+    return S
 
 #        x0 = a
 #        xx = [x0]
@@ -140,11 +140,11 @@ print('{0:10} | {1:17} | {2:10}'.format(n,d,t))
 print('-------------------------------------------------')
 
 for i in range(6):
-	t0 = clock()
-	S = point_milieu(f, -0.5, 0.5, 10**(i+1))
-	t1 = clock()
-	r=abs(S-I)
-	t2 = t1 - t0
-	print('{0:10} | {1:13} | {2:10}'.format(10**(i+1),r,t2))
+    t0 = clock()
+    S = point_milieu(f, -0.5, 0.5, 10**(i+1))
+    t1 = clock()
+    r=abs(S-I)
+    t2 = t1 - t0
+    print('{0:10} | {1:13} | {2:10}'.format(10**(i+1),r,t2))
 
 

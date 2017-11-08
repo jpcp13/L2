@@ -14,10 +14,10 @@ def trapeze(f, a, b, n):
 		S+=s
 	return S
 
-
+I = sqrt(3.0)/4 + (pi/6)
 print('Methode du trapeze')
 a = -0.5
 b = 0.5
-n = 1000
-s= trapeze(f, a, b, n)
-print(s)
+n = 100000
+S = trapeze(f, a, b, n)
+print(S-I)
