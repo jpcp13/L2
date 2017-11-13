@@ -16,23 +16,68 @@
 \maketitle
 
 \begin{questions}
+
+
 \question
-{\bf PGCD de deux entiers, identité de Bézout, algorithme d'Euclide.}
+{\bf Un nombre est-il premier ?}
 \begin{parts}
 \part
-Rappeler la définiton du pgcd de deux entiers relatifs ainsi que l'énoncé de l'identité de Bézout.
+Chercher comment on obtient en python le quotient et le reste de la division euclidienne d'un entier par un autre entier. Rappeler la définition d'un nombre premier. Parmi les entiers suivants, dire lesquels sont premiers : $1001, 2017, 3001, 49999, 89999$.
 \part
-Chercher comment on obtient en python le quotient et le reste de la division euclidienne d'un entier par un entier.
-A l'aide de l'algorithme d'Euclide étendu \url{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}, calculer le pgcd $d$ des deux nombres $a = 4864, b = 3458$ ainsi que les coefficients de Bézout $x, y$ tels que $xa + yb = d$.
+Ecrire une fonction python \texttt{is\_prime} qui prend en argument un entier $n$ et qui renvoie \texttt{true} si $n$ est premier, \texttt{false} sinon.
 \part
-Ecrire une fonction python \texttt{euclide} qui prend en arguments deux entiers $a, b$ et qui renvoie $x, y, d$, où $d$ est le pgcd de $a, b$ et $x, y$ les coefficients de Bézout.
+Les nombres de Fermat $F_n$ sont définis par $F_n = 2^{2^n} + 1$; les nombres $F_0, F_1, \cdots, F_5$ sont ils premiers ?
+\end{parts}
+
+\question
+{\bf Crible d'Erasthotène; distribution des nombres premiers.}
+\begin{parts}
+\part
+A l'aide du crible d'Erathostène \url{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}, calculer la liste de tous les nombres premiers inférieurs à $200$.
+\part
+Ecrire une fonction python \texttt{primes} qui prend en argument un entier $n$ et qui renvoie la liste de tous les premiers inférieurs à $n$.
+\part
+Calculer la liste de tous les premiers inférieurs à $1000$; écrire cette liste dans un fichier primes.txt, dix nombres par ligne.
+\part
+On note $\pi(n)$ le nombre d'entiers premiers inférieurs à $n$. Représenter graphiquement $\pi(n)$ en fonction de $n$ pour $n$ variant de $2$ à $1000$. Sur le même graphique, rajouter la fonction $\dfrac{n}{\log n}$. Qu'observe-t'on ? voir le Théorème des nombres premiers \url{https://en.wikipedia.org/wiki/Prime_number_theorem}.
+\part
+Créer en python la table suivante, la remplir et l'écrire dans un fichier texte.
+\begin{center}
+\begin{tabular}{r | c | c}
+$n$ & $\pi(n)$ & $\frac{n}{\log n}$ \\
+\hline
+$10$ & {} & {}\\
+$100$ & {} & {}\\
+$1000$ & {} & {}\\
+$10000$ & {} & {}\\
+$100000$ & {} & {}\\
+$1000000$ & {} & {}
+\end{tabular}
+\end{center}
+\end{parts}
+
+
+\question
+{\bf Factorisation d'un entier en premiers.}
+\begin{parts}
+\part
 
 \end{parts}
 
 
 \question
+{\bf pgcd de deux entiers, identité de Bézout, algorithme d'Euclide.}
+\begin{parts}
+\part
+Rappeler la définiton du pgcd de deux entiers relatifs ainsi que l'énoncé de l'identité de Bézout.
+\part
+A l'aide de l'algorithme d'Euclide étendu \url{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}, calculer le pgcd $d$ des deux nombres $a = 4864, b = 3458$ ainsi que les coefficients de Bézout $x, y$ tels que $xa + yb = d$.
+\part
+Ecrire une fonction python \texttt{euclide} qui prend en arguments deux entiers $a, b$ et qui renvoie $x, y, d$, où $d$ est le pgcd de $a, b$ et $x, y$ les coefficients de Bézout.
+\end{parts}
 
-\question
+
+
 
 \end{questions}
 
