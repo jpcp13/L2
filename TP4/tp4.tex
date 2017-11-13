@@ -1,0 +1,44 @@
+\documentclass{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[francais]{babel}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+
+\title{TP4\\ Arithmétique}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+\question
+{\bf PGCD de deux entiers, identité de Bézout, algorithme d'Euclide.}
+\begin{parts}
+\part
+Rappeler la définiton du pgcd de deux entiers relatifs ainsi que l'énoncé de l'identité de Bézout.
+\part
+Chercher comment on obtient en python le quotient et le reste de la division euclidienne d'un entier par un entier.
+A l'aide de l'algorithme d'Euclide étendu \url{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}, calculer le pgcd $d$ des deux nombres $a = 4864, b = 3458$ ainsi que les coefficients de Bézout $x, y$ tels que $xa + yb = d$.
+\part
+Ecrire une fonction python \texttt{euclide} qui prend en arguments deux entiers $a, b$ et qui renvoie $x, y, d$, où $d$ est le pgcd de $a, b$ et $x, y$ les coefficients de Bézout.
+
+\end{parts}
+
+
+\question
+
+\question
+
+\end{questions}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
