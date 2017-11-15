@@ -22,7 +22,11 @@
 {\bf Un nombre est-il premier ?}
 \begin{parts}
 \part
-Chercher comment on obtient en python le quotient et le reste de la division euclidienne d'un entier par un autre entier. Rappeler la définition d'un nombre premier. Parmi les entiers suivants, dire lesquels sont premiers : $1001, 2017, 3001, 49999, 89999$.
+Chercher comment on obtient en python le quotient et le reste de la division euclidienne d'un entier par un autre entier.
+\part
+Ecrire la définition d'un nombre premier.
+\part
+Parmi les entiers suivants, dire lesquels sont premiers : $1001, 2017, 3001, 49999, 89999$.
 \part
 Ecrire une fonction python \texttt{is\_prime} qui prend en argument un entier $n$ et qui renvoie \texttt{true} si $n$ est premier, \texttt{false} sinon.
 \part
@@ -30,16 +34,16 @@ Les nombres de Fermat $F_n$ sont définis par $F_n = 2^{2^n} + 1$; les nombres $
 \end{parts}
 
 \question
-{\bf Crible d'Erasthotène; distribution des nombres premiers.}
+{\bf Crible d'Erasthotène, distribution des nombres premiers.}
 \begin{parts}
 \part
-A l'aide du crible d'Erathostène \url{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}, calculer la liste de tous les nombres premiers inférieurs à $200$.
+A l'aide du \href{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}{crible d'Erathostène}, calculer la liste de tous les nombres premiers inférieurs à $200$.
 \part
 Ecrire une fonction python \texttt{primes} qui prend en argument un entier $n$ et qui renvoie la liste de tous les premiers inférieurs à $n$.
 \part
 Calculer la liste de tous les premiers inférieurs à $1000$; écrire cette liste dans un fichier primes.txt, dix nombres par ligne.
 \part
-On note $\pi(n)$ le nombre d'entiers premiers inférieurs à $n$. Représenter graphiquement $\pi(n)$ en fonction de $n$ pour $n$ variant de $2$ à $1000$. Sur le même graphique, rajouter la fonction $\dfrac{n}{\log n}$. Qu'observe-t'on ? voir le Théorème des nombres premiers \url{https://en.wikipedia.org/wiki/Prime_number_theorem}.
+On note $\pi(n)$ le nombre d'entiers premiers inférieurs à $n$. Représenter graphiquement $\pi(n)$ en fonction de $n$ pour $n$ variant de $2$ à $1000$. Sur le même graphique, rajouter la fonction $\dfrac{n}{\log n}$. Qu'observe-t'on ? voir le \href{https://en.wikipedia.org/wiki/Prime_number_theorem}{théorème des nombres premiers}.
 \part
 Créer en python la table suivante, la remplir et l'écrire dans un fichier texte.
 \begin{center}
@@ -61,7 +65,11 @@ $10^6$ & {} & {}
 {\bf Factorisation d'un entier en premiers.}
 \begin{parts}
 \part
-
+Ecrire le \href{https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic}{théorème fondamental de l'arithmétique}.
+\part
+Calculer la décomposition en facteurs premiers de $924$.
+\part
+Ecrire une fonction python \texttt{factors} qui prend en arguments un entiers $n$ et qui renvoie la liste, dans l'ordre croissant, des facteurs premiers de $n$, chaque facteur étant répété autant de fois que nécessaire. Ainsi, pour $n = 60$, on obtiendra $[2, 2, 3, 5]$.
 \end{parts}
 
 
@@ -69,9 +77,13 @@ $10^6$ & {} & {}
 {\bf pgcd de deux entiers, identité de Bézout, algorithme d'Euclide.}
 \begin{parts}
 \part
-Rappeler la définiton du pgcd de deux entiers relatifs ainsi que l'énoncé de l'identité de Bézout.
+Ecrire la définiton du pgcd de deux entiers.
 \part
-A l'aide de l'algorithme d'Euclide étendu \url{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}, calculer le pgcd $d$ des deux nombres $a = 4864, b = 3458$ ainsi que les coefficients de Bézout $x, y$ tels que $xa + yb = d$.
+En utilisant la décomposition en facteurs premiers, calculer le pgcd des deux nombres $a = 4864, b = 3458$.
+\part
+Ecrire l'énoncé de l'\href{https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity}{identité de Bézout}
+\part
+A l'aide de l'\href{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}{algorithme d'Euclide étendu}, calculer $d$, le pgcd des deux nombres $a = 4864, b = 3458$, ainsi que les coefficients de Bézout $x, y$ tels que $xa + yb = d$.
 \part
 Ecrire une fonction python \texttt{euclide} qui prend en arguments deux entiers $a, b$ et qui renvoie $x, y, d$, où $d$ est le pgcd de $a, b$ et $x, y$ les coefficients de Bézout.
 \end{parts}
