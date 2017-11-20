@@ -45,54 +45,23 @@ show()
 t1 = clock()
 test = Monte_carlo(150)
 t2 = clock() - t1
-print t2
-print test
+#~ print t2
+#~ print test
 
-Z = '\t\tTableau correspondant a la fonction Monte Carlo\n\n'
-print Z
-tableau = 'N\t|\tErreur\t\t|\tTemps (sec.)\t'
-print tableau
-print ('____________________________________________________________________\n')
-for i in range (1,7):
-	x = p(10,i)
-	t1 = clock()
-	w = Monte_carlo(x)
-	t2 = clock() - t1
-	y = abs(w - 3.14)
-	s = repr(x) + '\t' + '|' + '\t' + '%.9f' % y + '\t|' + '\t' + '%.9f' % t2 + '\n'
-	print s
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+with open('table6.txt', 'w') as tab:
+    Z = '\t\tTableau correspondant a la fonction Monte Carlo\n\n'
+    #~ print Z
+    tableau = 'N\t|\tErreur\t\t|\tTemps (sec.)\t\n'
+    #~ print tableau
+    #~ print ('____________________________________________________________________\n')
+    tirets = 40*'-' + '\n'
+    tab.write(Z + tableau + tirets)
+    for i in range (1,7):
+        x = p(10,i)
+        t1 = clock()
+        w = Monte_carlo(x)
+        t2 = clock() - t1
+        y = abs(w - 3.14)
+        s = repr(x) + '\t' + '|' + '\t' + '%.9f' % y + '\t|' + '\t' + '%.9f' % t2 + '\n'
+        #~ print s
+        tab.write(s)

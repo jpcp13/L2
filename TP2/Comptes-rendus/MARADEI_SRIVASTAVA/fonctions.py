@@ -18,15 +18,16 @@ def aire(n):
 	return aire	
 	
 def point_milieu(f, a, b, n):
-	I = (b-a)/n #I devient l'intervalle
-	aire = 0.0
-	x1 = a # Creation de deux variables necessaires au calcul de la hauteur de chaque rectangle
-	x2 = 0.0 # x2 s'exprime en fonction de x1
-	for i in range(n):
-		x2 = a+I
-		aire += I*(f((x1+x2)/2))
-		x1 += I
-	return aire 
+    I = (b-a)/n #I devient l'intervalle
+    aire = 0.0
+    x1 = a # Creation de deux variables necessaires au calcul de la hauteur de chaque rectangle
+    x2 = 0.0 # x2 s'exprime en fonction de x1
+    for i in range(n):
+        #~ x2 = a+I
+        x2 = x1 + I
+        aire += I*(f((x1+x2)/2))
+        x1 += I
+    return aire 
 
 def erreur(x):
 	return abs(x-(pi/6 + sqrt(3)/4))
@@ -38,15 +39,16 @@ def p(x, n): # definition d'une fonction puissance afin de faciliter la comprehe
 		return 1
 	
 def trapeze(f, a, b , n):
-	I = (b-a)/float(n)
-	aire = 0.0
-	x1 = a 
-	x2 = 0.0 
-	for i in range(n):
-		x2 = a+I
-		aire += float(((f(x1)+f(x2))*I)/2
-		x1 += I
-	return aire 
+    I = (b-a)/float(n)
+    aire = 0.0
+    x1 = a 
+    x2 = 0.0 
+    for i in range(n):
+        #~ x2 = a+I
+        x2 = x1 + I
+        aire += float((f(x1)+f(x2))*I)/2
+        x1 += I
+    return aire 
 
 def simpson(f, a, b, n):
 	I = (b-a)/n
