@@ -1,6 +1,6 @@
 listes/Base*
 listes/emails.txt
 listes/liste.*
-#listes/TPs.gnumeric
-#listes/assiduité.gnumeric
+listes/TPs.gnumeric
+listes/assiduité.gnumeric
 TP2/tp2.py
