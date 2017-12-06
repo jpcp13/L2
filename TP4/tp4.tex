@@ -90,22 +90,21 @@ Ecrire une fonction python \texttt{euclide} qui prend en arguments deux entiers 
 
 
 \question
-{\bf Algorithme RSA.}\\
+{\bf Chiffrement RSA.}\\
 Ecrire les codes python, mais ne pas rédiger de compte rendu sur cette partie.
 \begin{parts}
 \part
 Voir le fonctionnement du \href{https://fr.wikipedia.org/wiki/Chiffrement_RSA}{chiffrement RSA}.
 \part
-A l'aide de la fonction python \texttt{random.randint()} et de votre fonction \texttt{is\_prime}, choisir deux entiers premiers distincts $p, q$ supérieurs à $2^{35}$ et inférieurs à $2^{36}$.
+A l'aide de la fonction python \texttt{random.randint()} et de votre fonction \texttt{is\_prime()}, choisir deux entiers premiers distincts $p, q$ supérieurs à $2^{35}$ et inférieurs à $2^{36}$.
 \part
- On pose $n=pq$; vérifier que $n$ est supérieur à $2^{70}$. On sait bien sûr que $n$ n'est pas premier, mais que se passe-t'il lorsqu'on éxecute \texttt{is\_prime(n)} ? Expliquer le phénomène observé.
+ On pose $n=pq$; vérifier que $n$ est supérieur à $2^{70}$. On sait bien sûr que $n$ n'est pas premier, mais que se passe-t'il lorsqu'on exécute \texttt{is\_prime(n)} ? Expliquer le phénomène observé.
 \part
-Voir la définition de la fonction \href{https://fr.wikipedia.org/wiki/Indicatrice_d%27Euler}{indicatrice d'Euler}.
-Que vaut $\phi(n)$ pour l'entier $n$ défini ci-dessus ?
+Voir la définition de la fonction \href{https://fr.wikipedia.org/wiki/Indicatrice_d%27Euler}{indicatrice d'Euler}; que vaut $\phi(n)$ pour l'entier $n$ défini ci-dessus ?
 \part
 Choisir aléatoirement un entier naturel $e$ premier avec $\phi(n)$, et strictement inférieur à $\phi(n)$; $e$ est appelé exposant de {\bf chiffrement}.
 \part
-Calculer l'entier naturel $u$ inverse de $e$ modulo $\phi(n)$, et strictement inférieur à $\phi(n)$;  $u$ est appelé clé de {\bf déchiffrement}; indication : si $d$ est le pgcd de $e$ et $\phi(n)$ et si $u, v$ sont les coefficients de Bézout tels que $d = ue + v\phi(n)$, alors $u$ est inverse de $e$ modulo $\phi(n)$; de plus dans l'identité de Bézout on peut toujours choisir $u$ compris entre $1$ et $n$.
+Calculer l'entier naturel $u$ inverse de $e$ modulo $\phi(n)$, et strictement inférieur à $\phi(n)$;  $u$ est appelé exposant de {\bf déchiffrement}; indication : si $d$ est le pgcd de $e$ et $\phi(n)$ et si $u, v$ sont les coefficients de Bézout tels que $d = ue + v\phi(n)$, alors $u$ est inverse de $e$ modulo $\phi(n)$; de plus dans l'identité de Bézout on peut toujours choisir $u$ compris entre $1$ et $n$.
 \part
 Choisir $M$ un entier naturel strictement inférieur à $n$; $M$ représente le message que l'on veut chiffrer. Calculer $C = M^e$ modulo $n$ - indication : il faut soit implémenter la \href{https://fr.wikipedia.org/wiki/Exponentiation_rapide}{méthode d'exponentiation rapide} en effectuant les produits modulo $n$, soit utiliser la fonction python built-in \texttt{pow()}; $C$ est le message chiffré, utilisant la clé publique de chiffrement $e, n$.
 \part
@@ -113,9 +112,11 @@ Choisir $M$ un entier naturel strictement inférieur à $n$; $M$ représente le 
 \part
 En rassemblant les éléments précédents, écrire une fonction python \texttt{rsa\_key()}, qui ne prend pas d'argument, et qui renvoie les entiers $e, u, n$, où $e, n$ servira de clé publique de chiffrement et $u, n$ de clé privée de déchiffrement.
 \part
-Combien y a t'il de chaines de $10$ caractères ASCII distinctes possibles, sachant qu'un caractère ASCII est codé sur $7$ bits ? En utilisant la fonction built-in \texttt{ord()}, écrire une fonction python \texttt{tenchars2int} qui prend en argument une chaine de caractères \texttt{tenchars} de longueur $10$ au plus et qui renvoie un entier $M$, inférieur strictement à $2^{70}$, codant la chaine de caractères \texttt{tenchars}. De même, en utilisant la fonction built-in \texttt{chr()}, écrire une fonction python \texttt{int2tenchars} qui prend en argument un entier $M$ inférieur strictement à $2^{70}$ et qui renvoie une chaine de $10$ caractères ASCII. Vérifier que les fonctions  \texttt{tenchars2int} et \texttt{int2tenchars} sont bien inverses l'une de l'autre.
+Combien y a t'il de chaines de $10$ caractères ASCII distinctes possibles, sachant qu'un caractère ASCII est codé sur $7$ bits ? 
+Dans ce qui suit, on appellera mot une chaine de $10$ caractères ASCII.
+En utilisant la fonction built-in \texttt{ord()}, écrire une fonction python \texttt{word2int()} qui prend en argument un mot \texttt{w} et qui renvoie un entier $M$, inférieur strictement à $2^{70}$, codant la chaine de caractères \texttt{w}. De même, en utilisant la fonction built-in \texttt{chr()}, écrire une fonction python \texttt{int2word()} qui prend en argument un entier $M$ inférieur strictement à $2^{70}$ et qui renvoie un mot. Vérifier que les fonctions  \texttt{word2int()} et \texttt{int2word()} sont bien inverses l'une de l'autre.
 \part
-En rassemblant les éléments précédents, écrire une fonction python \texttt{chiffrer()} qui prend en arguments une chaine de caractères de longueur arbitraire et qui renvoie cette chaine chiffrée au moyen d'une clé publique de chiffrement générée par la fonction \texttt{rsa\_key()} - indication : découper le texte à chiffrer en segments de longueur $10$. De même, écrire une fonction python \texttt{dechiffrer()} qui prend en arguments un texte chiffré, ainsi que la clé privée de déchiffrement associée à la clé publique, et qui renvoie le texte déchiffré. Tester les fonctions \texttt{chiffrer()} et \texttt{dechiffrer()} sur des exemples.
+En rassemblant les éléments précédents, écrire une fonction python \texttt{chiffrer()} qui prend en arguments une chaine de caractères de longueur arbitraire, appelée texte, et qui renvoie cette chaine chiffrée au moyen d'une clé publique de chiffrement générée par la fonction \texttt{rsa\_key()} - indication : découper le texte à chiffrer en mots de longueur $10$; si le dernier mot compte moins de $10$ caractères, on le complètera avec le caractère ASCII NULL, codé par $0$, répété autant de fois qu'il le faut pour obtenir un mot de longueur $10$. De même, écrire une fonction python \texttt{dechiffrer()} qui prend en arguments un texte chiffré, ainsi que la clé privée de déchiffrement associée à la clé publique, et qui renvoie le texte déchiffré. Tester les fonctions \texttt{chiffrer()} et \texttt{dechiffrer()} sur des exemples.
 \end{parts}
 
 \end{questions}
