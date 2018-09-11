@@ -1,0 +1,248 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[francais]{babel}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\title{Compte rendu TP4\\ Arithmétique}
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{enumerate}
+	\item Un nombre est-il premier ?
+Pour effectuer une division euclidienne en python entre deux entiers naturels
+ a et b, on utilise 2 slash :
+
+\begin{lstlisting}[basicstyle=\small]
+ a // b
+\end{lstlisting}
+
+Cette opération donne le quotient uniquement. \\
+Pour obtenir le reste d’une division euclidienne,
+ on utilise « % », qui est la relation de congruence
+
+ \begin{lstlisting}[basicstyle=\small]
+  a % b
+ \end{lstlisting}
+
+ Si on veut le quotient et le reste entre deux entiers naturels a et b,
+  on utilise la fonction $divmod(a,b)$ \\
+	Un nombre premier est un entier naturel qui admet exactement deux diviseurs
+	 distincts entiers et positifs \\
+Parmi les entiers proposé , seul 2017,3001 et 49 999 sont premiers
+ 1001 et 89 999 ne sont pas premier car ils sont tous deux divisible par 7 \\
+Pour définir si ces nombres étaient premiers ou non, nous avons commencé par
+coder le programme suivant puis nous avons testé les nombres de la question
+ précédente. Le programme est divisé en 2 parties :
+  la fonction demandé $is_prime$, cherchant tout les nombres divisant n.
+	 Si le programme trouve un nombre divisant n, il renvoie $False$.
+
+	 \begin{lstlisting}[basicstyle=\small]
+	 def is_prim(n):
+
+ for i in range(2,n-1):
+	 if(n % i == 0):
+		 return False
+
+ return True
+	 \end{lstlisting}
+
+	 Ceci est la fonction que l’on a codé du premier, on peut amélioré
+	  la vitesse d’exécution en testant jusqu'à la partie entière par
+		excès de racine de n \\
+		On a ensuite défini une fonction show_prim qui est assez esthétique : elle
+		prend en argument un entier n et affiche à l’aide d’un print si n
+	  est premier  \\
+		\begin{lstlisting}[basicstyle=\small]
+		def show_prim(n):
+	if (is_prim(n) != False):
+		print n,"est premier"
+	else:
+		print n,"n'est pas premier"
+		\end{lstlisting}
+On a utilisé show_prim pour tester si les entiers de la question précédente
+ sont premiers ou pas, en testant au préalable 10 et 3 pour vérifier
+  que le programme fonctionne correctement. \\
+	On définit une fonction Fermat
+
+		\begin{lstlisting}[basicstyle=\small]
+		def Fermat(n):
+			return 2**(2**n) + 1
+		\end{lstlisting}
+		On teste ensuite les nombres de Fermat $F_k$ pour k allant de 1 à 5
+		 à l’aide d’une boucle for :
+		 \begin{lstlisting}[basicstyle=\small]
+		 for j in range(5):
+	print "\n"
+	print " Fermat(" , j , ") = " , Fermat(j)
+	show_prim(Fermat(j))
+
+		 \end{lstlisting}
+	\item Le crible d'Erasthotène
+	Le crible d'Eratosthène est un procédé qui permet de trouver tous les
+	nombres premiers inférieurs à un certain entier naturel donné N .
+Il consiste à supprimer du tableau tout les entiers qui sont multiple
+ d'un nombre <= 2, pour qu'il ne reste que des nombres premiers \\
+ On définit la fonction primes qui prend en argument un entier n et stocke
+ dans une liste X tout les nombres premiers entre 1 et n :
+
+	\begin{lstlisting}[basicstyle=\small]
+
+	def primes(n):
+	X = []
+
+	for i in range(2,n):
+		if  (is_prim(i) == True):
+			X.append(i)
+	return X
+
+	\end{lstlisting}
+Nous avons utilisé cette fonction pour N = 1000 et nous avons affiché
+la liste sur le terminal, le programme marchait. Néanmoins nous avons
+ ensuite eu des difficultés à enregistrer cette liste dans un fichier
+  texte. Nous avons été voir des camarades qui nous ont donné un code.
+	 Le code marchait mais la liste imprimé n’était pas esthétique, il y
+	  avait les 10 nombres par lignes mais  il n’y avait pas d’espace entre
+		eux, les nombres étaient illisible. Nous avons alors modifié le format avec {0:4}
+		(primes.txt disponible en annexe) \\
+		\begin{lstlisting}[basicstyle=\small]
+
+		cpt = 0
+		with open("primes.txt", "w") as fichier:
+			for p in X:
+				cpt+=1
+				if cpt%10 !=0:
+					fichier.write("{0:4}". format(p))
+				else:
+					fichier.write("{0:4}\n". format(p))
+
+
+		\end{lstlisting}
+
+		On s’interesse ensuite à la fonction π(n), donnant le nombre
+		 nombres premier inférieur à n : π(n) est donc le cardinal
+		 de la liste X donné par la fonction primes, . On utilise donc la fonction $len$.
+		  On a alors:
+
+    \begin{lstlisting}[basicstyle=\small]
+		def pi(n):
+			X = primes(n)
+			return len(X)
+    \end{lstlisting}
+
+		Nous devons comparer graphiquement la fonction π(n) avec la
+		fonction n/(log n) que l’on notera g.
+Nous avons eu des problèmes de compilation mais on ne voyait pas
+d’erreur car logiquement le code était bon.Le professeur nous a dit
+de réécrire le code en essayant chaque morceau du code, nous avons
+ alors trouvé que l’erreur venait de cette ligne :
+ \begin{lstlisting}[basicstyle=\small]
+plt.plot(n, pi(n), 'r-',n , g(n),'b')
+ \end{lstlisting}
+
+ Le professeur nous a alors dis de créer de nouvelles variables : 
+ \begin{lstlisting}[basicstyle=\small]
+ pi_n = [pi(n) for n in nn]
+ g_n  = [g(n) for n in nn]
+ plt.plot(nn, pi_n, 'r-',nn , g_n,'b')
+ \end{lstlisting}
+ Après cela le code fonctionnait, on a pu remarquer que les deux fonctions
+  étaient assez similaire, on en déduit que n/(log n) peut être une approximation de π(n)
+(graphe en pièce jonte, figure 1-1) \\
+
+	\item Factorisation d'un entiers en nombres premiers
+	Le théorème fondamentale de l'arithmétique affirme que tout entier
+	 strictement positif peut être écrit comme un produit de nombres premiers
+	  d'une unique façon, à l'ordre près des facteurs.
+On décompose 924 en produit de facteur premiers :
+	\begin{lstlisting}[basicstyle=\small]
+	$924 = 2 * 462$
+	$924 = 2 * 2 * 231$
+	$924 = 2 * 2 * 3 * 77$
+	$924 = 2 * 2 * 3 * 7 * 11$
+	\end{lstlisting}
+	On a divisé 924 par 2, le premier nombre premier compris entre 1 et 924
+	 inclus.
+On pouvait encore diviser le quotient obtenu par 2, alors on a réiterer
+l'opération jusqu'à ce que le quotient n'était plus divisible par 2. \\
+On fait de même avec les nombres premiers suivants.
+On traduit le raisonnement effectué en langage python, en ajoutant les nombres premiers trouvé dans une liste qui sera retourné à la fin.
+ (voir exo3.py)
+
+
+	\item PGCD de deux entiers
+	Le plus grand commun diviseur ou PGCD de deux nombres entiers non nuls
+	 est le plus grand entier qui les divise simultanément. \\
+On décompose 4864 et 3458 en produit de facteurs premiers :
+	\begin{lstlisting}[basicstyle=\small]
+
+	$4864 = 2^8 * 19$
+  $3458 = 2 * 7 * 13 * 19$
+  4864 et 3458 ont 2 facteurs premiers en commun : 2 et 19
+  $PGCD(4864,3458) = 2 * 19 = 38$
+
+	\end{lstlisting}
+	L'identité de Bézout est un résultat d'arithmétique élémentaire qui prouve
+	 l'existence de solutions à l'équation diophantienne linéaire  \\
+	 $ax + by = pgcd(a, b)$
+	 \begin{tabular}{|*{5}{c
+	 \hline
+	 a & b & r & A = bq + r & R = a - bq \\
+	 \hline
+	 4864 & 3458 & 1406 & 4864 = 3458 + 1406 & 4864 – 3458 = 1406 \\
+   \hline
+	 3458 & 1406 & 646 & 3458 = 2*1406 + 646 & 3458 – 2*1406 = 646 \\
+	 \hline
+   1406 & 646 & 114 & 1406 – 2*646 = 114 & 1406 – 2*646 = 114 \\
+	 \hline
+   646 & 114 & 76 & 646 – 5*114 = 76 & 646 – 5*114 = 76 \\
+	 \hline
+   114 & 76 & 38 & 114 – 76 = 38 & 114 – 76 = 38 \\
+	 \hline
+   76 & 38 & 0 & 76 – 2*38 = 0 & 76 – 2*38 = 0 \\
+	 \hline
+
+	 \end{tabular}
+	 \begin{lstlisting}[basicstyle=\small]
+
+	 $Soit 38 = 114 – 76$
+   A partir de la colonne r = a - bq, on remplace 114 et 76
+	 L'objectif est d'obtenir une équation de la forme 38 = 3458x + 4864y
+   $On a 38 = (1406 – 2*646) – (646 – 5*114)
+            =  1406 – 2*646 – 646 +5 *1406 – 10*646
+         38 = 6 * 1406 – 13 * 646$
+On réitère l'opération, on obtient à la fin :
+$38 = 4864 * 32 + 3458 * (-45)$
+
+	 \end{lstlisting}
+	 Pour écrire la fonction euclide qui renvoie le pgcd et les coefficients de
+	  Bezout, on a pas traduit la méthode utilisé ci-dessus. Nous avons trouvé sur la page Wikipédia parlant de l'algorithme d'Euclide étendu un algorithme écrit pour comprendre comment il marchait
+	 https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu#L'algorithme
+	 Nous l'avons retranscrit en langage python:
+	 \begin{lstlisting}[basicstyle=\small]
+
+	 def euclide(a,b):
+
+    d,x,y,d1,x1,y1=a,1,0,b,0,1
+    while d1!=0:
+        q=d//d1
+        d,x,y,d1,x1,y1=d1,x1,y1,d-q*d1,x-q*x1,y-q*y1
+    return (d,x,y)
+
+	 \end{lstlisting}
+
+\end{enumerate}
+\end{document}

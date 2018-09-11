@@ -1,0 +1,24 @@
+\begin{tabular}{|c|c|c|c|>{\columncolor{yellow}}c|c|c|c|c>{\columncolor{yellow}}c}
+\hline 
+\cellcolor{red}1&\textbf{2}&\textbf{3}&\color{red}4&\textbf{5}&\color{red}\cellcolor{cyan}6&\textbf{7}&\color{red}8&\cellcolor{cyan}9&\color{red}10\\ \hline 
+\textbf{11}&\color{red}\cellcolor{cyan}12&\textbf{13}&\color{red}14&\cellcolor{cyan}15&\color{red}16&\textbf{17}&\color{red}\cellcolor{cyan}18&\textbf{19}&\color{red}20\\ \hline 
+\cellcolor{cyan}\color{green}21&\color{red}22&\textbf{23}&\color{red}\cellcolor{cyan}24&25&\color{red}26&\cellcolor{cyan}27&\color{red}28&\textbf{29}&\color{red}\cellcolor{cyan}30\\ \hline 
+\textbf{31}&\color{red}32&\cellcolor{cyan}33&\color{red}34&\color{green}35&\color{red}\cellcolor{cyan}36&\textbf{37}&\color{red}38&\cellcolor{cyan}39&\color{red}40\\ \hline 
+\textbf{41}&\color{red}\cellcolor{cyan}\color{green}42&\textbf{43}&\color{red}44&\cellcolor{cyan}45&\color{red}46&\textbf{47}&\color{red}\cellcolor{cyan}48&\color{green}49&\color{red}50\\ \hline 
+\cellcolor{cyan}51&\color{red}52&\textbf{53}&\color{red}\cellcolor{cyan}54&\color[RGB]{255,0,186}55&\color{red}56&\cellcolor{cyan}57&\color{red}58&\textbf{59}&\color{red}\cellcolor{cyan}60\\ \hline 
+\textbf{61}&\color{red}62&\cellcolor{cyan}\color{green}63&\color{red}64&\color[RGB]{150,0,186}65&\color{red}\cellcolor{cyan}66&\textbf{67}&\color{red}68&\cellcolor{cyan}69&\color{red}70\\ \hline 
+\textbf{71}&\color{red}\cellcolor{cyan}72&\textbf{73}&\color{red}74&\cellcolor{cyan}75&\color{red}76&\color{green}\color[RGB]{255,0,186}77&\color{red}\cellcolor{cyan}78&\textbf{79}&\color{red}80\\ \hline 
+\cellcolor{cyan}81&\color{red}82&\textbf{83}&\color{red}\cellcolor{cyan}\color{green}84&85&\color{red}86&\cellcolor{cyan}87&\color{red}88&\textbf{89}&\color{red}\cellcolor{cyan}90\\ \hline 
+\color{green}91&\color{red}92&\cellcolor{cyan}93&\color{red}94&95&\color{red}\cellcolor{cyan}96&\textbf{97}&\color{red}98&\cellcolor{cyan}99&\color{red}100\\ \hline 
+\textbf{101}&\color{red}\cellcolor{cyan}102&\textbf{103}&\color{red}104&\cellcolor{cyan}\color{green}105&\color{red}106&\textbf{107}&\color{red}\cellcolor{cyan}108&\textbf{109}&\color{red}110\\ \hline 
+\cellcolor{cyan}111&\color{red}112&\textbf{113}&\color{red}\cellcolor{cyan}114&115&\color{red}116&\cellcolor{cyan}117&\color{red}118&\color{green}119&\color{red}\cellcolor{cyan}120\\ \hline 
+\color[RGB]{255,0,186}121&\color{red}122&\cellcolor{cyan}123&\color{red}124&125&\color{red}\cellcolor{cyan}\color{green}126&\textbf{127}&\color{red}128&\cellcolor{cyan}129&\color{red}130\\ \hline 
+\textbf{131}&\color{red}\cellcolor{cyan}132&\color{green}133&\color{red}134&\cellcolor{cyan}135&\color{red}136&\textbf{137}&\color{red}\cellcolor{cyan}138&\textbf{139}&\color{red}140\\ \hline 
+\cellcolor{cyan}141&\color{red}142&\color[RGB]{255,0,186}143&\color{red}\cellcolor{cyan}144&145&\color{red}146&\cellcolor{cyan}\color{green}147&\color{red}148&\textbf{149}&\color{red}\cellcolor{cyan}150\\ \hline 
+\textbf{151}&\color{red}152&\cellcolor{cyan}153&\color{red}154&155&\color{red}\cellcolor{cyan}156&\textbf{157}&\color{red}158&\cellcolor{cyan}159&\color{red}160\\ \hline 
+\color{green}161&\color{red}\cellcolor{cyan}162&\textbf{163}&\color{red}164&\cellcolor{cyan}165&\color{red}166&\textbf{167}&\color{red}\cellcolor{cyan}\color{green}168&\color[RGB]{150,0,186}169&\color{red}170\\ \hline 
+\cellcolor{cyan}171&\color{red}172&\textbf{173}&\color{red}\cellcolor{cyan}174&\color{green}175&\color{red}176&\cellcolor{cyan}177&\color{red}178&\textbf{179}&\color{red}\cellcolor{cyan}180\\ \hline 
+\textbf{181}&\color{red}182&\cellcolor{cyan}183&\color{red}184&185&\color{red}\cellcolor{cyan}186&\color[RGB]{255,0,186}187&\color{red}188&\cellcolor{cyan}\color{green}189&\color{red}190\\ \hline 
+\textbf{191}&\color{red}\cellcolor{cyan}192&\textbf{193}&\color{red}194&\cellcolor{cyan}195&\color{red}196&\textbf{197}&\color{red}\cellcolor{cyan}198&\textbf{199}&\color{red}200\\ \hline 
+
+\end{tabular}
